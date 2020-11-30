@@ -15,7 +15,7 @@ func TestBinaryGap(t *testing.T) {
 		actual := BinaryGap(input)
 
 		if actual != expected {
-			t.Errorf("Expected %d but got %d", expected, actual)
+			t.Errorf("Expected %d for %d - but got %d", expected, input, actual)
 		}
 	}
 }
