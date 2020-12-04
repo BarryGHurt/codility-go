@@ -10,6 +10,9 @@ func TestBinaryGap(t *testing.T) {
 
 	results[1041] = 5
 	results[32] = 0
+	results[15] = 0
+	results[9] = 2
+	results[529] = 4
 
 	for input, expected := range results {
 		actual := BinaryGap(input)

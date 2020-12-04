@@ -9,7 +9,7 @@ import (
 func BinaryGap(N int) int {
 	var result int
 	var resultTemp int
-	var calc bool
+	var firstOne bool
 
 	for N > 0 {
 		binrep := strconv.FormatInt(int64(N), 2)
@@ -18,8 +18,8 @@ func BinaryGap(N int) int {
 		// N is odd
 		if N%2 == 1 {
 			// Don't count till the first '1' is seen
-			if !calc {
-				calc = true
+			if !firstOne {
+				firstOne = true
 				// Reset count every '1' thereafter
 			} else {
 				if resultTemp > result {
@@ -29,7 +29,7 @@ func BinaryGap(N int) int {
 			}
 			// N is even, thus a '0' at the end in binary
 		} else {
-			if calc {
+			if firstOne {
 				resultTemp++
 			}
 		}
