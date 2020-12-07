@@ -75,3 +75,21 @@ func Rotate(A []int, K int) []int {
 
 	return a
 }
+
+// OddManOut - find the value of the element that does not have a partner
+func OddManOut(A []int) int {
+
+	oddMan := 0
+
+	for _, currentVal := range A {
+		oddMan ^= currentVal
+	}
+
+	return oddMan
+}
+
+// FrogJump - Count the minimal number of jumps that the small frog must perform to reach its target.
+func FrogJump(X int, Y int, D int) int {
+
+	return 0
+}

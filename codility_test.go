@@ -66,3 +66,15 @@ func arrayequals(a, b []int) bool {
 
 	return true
 }
+
+func TestOddManOut(t *testing.T) {
+	testitem1 := []int{9, 3, 9, 3, 9, 7, 9}
+
+	testout1 := OddManOut(testitem1)
+
+	expected1 := 7
+
+	if testout1 != expected1 {
+		t.Errorf("Expected %d - but got %d", expected1, testout1)
+	}
+}
