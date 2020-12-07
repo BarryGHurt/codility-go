@@ -39,3 +39,39 @@ func BinaryGap(N int) int {
 
 	return result
 }
+
+// Rotate an array
+func Rotate(A []int, K int) []int {
+	// Perform K rotations to the right on input
+
+	// The easy ones
+	if A == nil || len(A) == 0 || len(A) == 1 {
+		return A
+	}
+
+	// Only need to rotate what's left after a full rotation
+	k := K % len(A)
+	if len(A) == K || k == 0 {
+		return A
+	}
+
+	a := make([]int, len(A))
+
+	// slice the last k items
+	if k > len(A) {
+		panic("Can't have a negative index")
+	}
+	backK := A[len(A)-k:]
+
+	// Shift by k
+	for i := 0; (i + k) < len(A); i++ {
+		a[i+k] = A[i]
+	}
+
+	// Insert the saved k elements at the front
+	for i := 0; i < k; i++ {
+		a[i] = backK[i]
+	}
+
+	return a
+}
