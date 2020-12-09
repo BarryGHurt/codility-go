@@ -87,3 +87,15 @@ func TestFrogJump(t *testing.T) {
 		t.Errorf("Expected %d - but got %d", 3, jumps)
 	}
 }
+
+func TestTapeEquilibrium(t *testing.T) {
+	testitem1 := []int{3, 1, 2, 4, 3}
+	expected1 := 1
+
+	testout1 := TapeEquilibrium(testitem1)
+
+	if testout1 != expected1 {
+		t.Errorf("Expected %d - but got %d", expected1, testout1)
+	}
+
+}

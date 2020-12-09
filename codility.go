@@ -95,3 +95,34 @@ func FrogJump(X int, Y int, D int) int {
 	distance := float64(D)
 	return int(math.Ceil(startPoint / distance))
 }
+
+// TapeEquilibrium --
+func TapeEquilibrium(A []int) int {
+	mindiff := math.MaxInt64
+	diffs := len(A) - 1
+
+	for i := 1; i <= diffs; i++ {
+		var first []int = A[0:i]
+		var last []int = A[i:]
+
+		diff1 := 0
+		diff2 := 0
+
+		for _, val := range first {
+			diff1 += val
+		}
+
+		for _, val := range last {
+			diff2 += val
+		}
+
+		difftemp := math.Abs(float64(diff1 - diff2))
+		diff := int(difftemp)
+
+		if diff < mindiff {
+			mindiff = diff
+		}
+	}
+
+	return mindiff
+}
