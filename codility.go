@@ -2,6 +2,7 @@ package codility
 
 import (
 	"fmt"
+	"math"
 	"strconv"
 )
 
@@ -90,6 +91,7 @@ func OddManOut(A []int) int {
 
 // FrogJump - Count the minimal number of jumps that the small frog must perform to reach its target.
 func FrogJump(X int, Y int, D int) int {
-
-	return 0
+	startPoint := float64(Y - X)
+	distance := float64(D)
+	return int(math.Ceil(startPoint / distance))
 }

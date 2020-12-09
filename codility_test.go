@@ -78,3 +78,12 @@ func TestOddManOut(t *testing.T) {
 		t.Errorf("Expected %d - but got %d", expected1, testout1)
 	}
 }
+
+func TestFrogJump(t *testing.T) {
+
+	jumps := FrogJump(10, 85, 30)
+
+	if jumps != 3 {
+		t.Errorf("Expected %d - but got %d", 3, jumps)
+	}
+}
