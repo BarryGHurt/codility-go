@@ -98,31 +98,33 @@ func FrogJump(X int, Y int, D int) int {
 
 // TapeEquilibrium --
 func TapeEquilibrium(A []int) int {
+	currentdiff := math.MaxInt64
 	mindiff := math.MaxInt64
-	diffs := len(A) - 1
+	total := 0
 
-	for i := 1; i <= diffs; i++ {
-		var first []int = A[0:i]
-		var last []int = A[i:]
+	firstpart := 0
+	lastpart := 0
 
-		diff1 := 0
-		diff2 := 0
+	for _, val := range A {
+		total += val
+	}
 
-		for _, val := range first {
-			diff1 += val
-		}
+	pvals := len(A) - 1
 
-		for _, val := range last {
-			diff2 += val
-		}
+	for i := 0; i < pvals; i++ {
+		firstpart += A[i]
+		lastpart = total - firstpart
+		currentdiff = int(math.Abs(float64(firstpart - lastpart)))
 
-		difftemp := math.Abs(float64(diff1 - diff2))
-		diff := int(difftemp)
-
-		if diff < mindiff {
-			mindiff = diff
-		}
+		mindiff = min(currentdiff, mindiff)
 	}
 
 	return mindiff
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
